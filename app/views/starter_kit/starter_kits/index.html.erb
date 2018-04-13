@@ -1,0 +1,178 @@
+<p id="notice"><%= notice %></p>
+<h1>
+  StarterKits
+</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th style="border: 1px solid black;">
+        Id
+      </th>
+      <th style="border: 1px solid black;">
+        Name
+      </th>
+      
+        <th colspan='2' style="border: 1px solid black;">
+          Buzzer
+        </th>
+      
+        <th colspan='3' style="border: 1px solid black;">
+          FourDigitDisplay
+        </th>
+      
+        <th colspan='2' style="border: 1px solid black;">
+          Potentiometer
+        </th>
+      
+        <th colspan='2' style="border: 1px solid black;">
+          UltrasonicRangeSensor
+        </th>
+      
+        <th colspan='2' style="border: 1px solid black;">
+          LightSensor
+        </th>
+      
+      <th style="border: 1px solid black;">
+        &nbsp;
+      </th>
+    </tr>
+    <tr>
+      <th>
+        &nbsp;
+      </th>
+      <th>
+        &nbsp;
+      </th>
+      
+        
+          <th>
+            buzzer
+          </th>
+        
+          <th>
+            port_number
+          </th>
+        
+      
+        
+          <th>
+            clock
+          </th>
+        
+          <th>
+            display
+          </th>
+        
+          <th>
+            port_number
+          </th>
+        
+      
+        
+          <th>
+            position
+          </th>
+        
+          <th>
+            port_number
+          </th>
+        
+      
+        
+          <th>
+            range
+          </th>
+        
+          <th>
+            port_number
+          </th>
+        
+      
+        
+          <th>
+            intensity
+          </th>
+        
+          <th>
+            port_number
+          </th>
+        
+      
+      <th>
+        &nbsp;
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @starter_kits.each do |object| %>
+      <tr id='<%= object.apiotics_instance %>'>
+        <td>
+          <%= object.apiotics_instance %>
+        </td>
+        <td>
+          <%= object.name %>
+        </td>
+        
+          
+            <td class='starter_kit-buzzer-buzzer'>
+              <%= object.buzzer.buzzer %>
+            </td>
+          
+            <td class='starter_kit-buzzer-port_number'>
+              <%= object.buzzer.port_number %>
+            </td>
+          
+        
+          
+            <td class='starter_kit-four_digit_display-clock'>
+              <%= object.four_digit_display.clock %>
+            </td>
+          
+            <td class='starter_kit-four_digit_display-display'>
+              <%= object.four_digit_display.display %>
+            </td>
+          
+            <td class='starter_kit-four_digit_display-port_number'>
+              <%= object.four_digit_display.port_number %>
+            </td>
+          
+        
+          
+            <td class='starter_kit-potentiometer-position'>
+              <%= object.potentiometer.position %>
+            </td>
+          
+            <td class='starter_kit-potentiometer-port_number'>
+              <%= object.potentiometer.port_number %>
+            </td>
+          
+        
+          
+            <td class='starter_kit-ultrasonic_range_sensor-range'>
+              <%= object.ultrasonic_range_sensor.range %>
+            </td>
+          
+            <td class='starter_kit-ultrasonic_range_sensor-port_number'>
+              <%= object.ultrasonic_range_sensor.port_number %>
+            </td>
+          
+        
+          
+            <td class='starter_kit-light_sensor-intensity'>
+              <%= object.light_sensor.intensity %>
+            </td>
+          
+            <td class='starter_kit-light_sensor-port_number'>
+              <%= object.light_sensor.port_number %>
+            </td>
+          
+        
+        <td>
+          <%= link_to "Edit", edit_starter_kit_path(object)%>
+          <%= link_to "Show", starter_kit_path(object) %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
