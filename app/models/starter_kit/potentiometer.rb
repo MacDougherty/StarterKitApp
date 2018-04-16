@@ -49,7 +49,7 @@ module StarterKit
       end
     end
     def change_display
-      if self.starter_kit.name ==  #insert device name here in quotes  
+      if self.starter_kit.name == #insert device name here in quotes  
         self.starter_kit.four_digit_display.display = self.position.to_s
         self.starter_kit.four_digit_display.save
       end
