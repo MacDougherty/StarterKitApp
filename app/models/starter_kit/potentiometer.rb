@@ -6,6 +6,7 @@ module StarterKit
     attr_accessor :skip_extract
     after_commit :extract, unless: :skip_extract
     after_commit :channel_push
+    after_update :change_display
     
    	validates :position, inclusion: { in: 0..4095,
    	message: "%{value} is not within the range 0..4095" }
@@ -47,6 +48,11 @@ module StarterKit
         end
       end
     end
-  
+    def change_display
+      if self.starter_kit.name ==  #insert device name here in quotes  
+        self.starter_kit.four_digit_display.display = self.position.to_s
+        self.starter_kit.four_digit_display.save
+      end
+    end 
   end
 end
