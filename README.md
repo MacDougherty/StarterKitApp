@@ -47,19 +47,25 @@ Note: For the `live_update` branch and the `live_change_display` branch, you wil
 2. If you are using Linux, uncomment the following line in the Gemfile:
 `# gem 'mini_racer', platforms: :ruby`.
 
-3. If you don't already have bundler installed, run `gem install bundler` then run `bundle`.
+3. In `config/initializers/apiotics.rb`, set config.public_key and config.private_key to the public and private keys of your Hive, which can be found on the Apiotics portal near the top of your Hive's page. Copy and paste the corresponding keys instead of "nil" in the following lines:
+```
+  config.public_key = nil #set this to an Environment variable
+  config.private_key = nil #set this to an Environment variable
+```
 
-4. Run `rake db:migrate`.
+4. If you don't already have bundler installed, run `gem install bundler` then run `bundle`.
 
-5. For the `change_display` or `live_change_display` branches, navigate to `app/models/starter_kits/potentiometer.rb` and insert the name of your device where it says `#insert device name here in quotes`.  The name of your device can be found on the [Starter Kit page in the Apiotics portal](https://portal.apiotics.com/workers/106) under the Worker Instances section.  If you are using the `master` or `live_update` branch, skip this step.
+5. Run `rake db:migrate`.
 
-6. To start communication with the web app, run `rake dev_comms:start`.
+6. For the `change_display` or `live_change_display` branches, navigate to `app/models/starter_kits/potentiometer.rb` and insert the name of your device where it says `#insert device name here in quotes`.  The name of your device can be found on the [Starter Kit page in the Apiotics portal](https://portal.apiotics.com/workers/106) under the Worker Instances section.  If you are using the `master` or `live_update` branch, skip this step.
 
-7. If you are using the `live_update` or `live_change_display` branch, start a redis server by opening a new terminal and running `redis-server`.  Leave this terminal open in the background.  
+7. To start communication with the web app, run `rake dev_comms:start`.
 
-8. Run `rails server` (or `rails s`).
+8. If you are using the `live_update` or `live_change_display` branch, start a redis server by opening a new terminal and running `redis-server`.  Leave this terminal open in the background.  
 
-9. To see the web app, browse to <http://localhost:3000/starter_kits>.
+9. Run `rails server` (or `rails s`).
+
+10. To see the web app, browse to <http://localhost:3000/starter_kits>.
 
 Note: 
 Every time you change the code you will need to run `dev_comms:restart` (or `dev_comms:stop` then `dev_comms:start`) in order to see the updates on the web app. 
